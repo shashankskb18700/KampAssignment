@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #0d0106;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fbfbff;
+        font-family: "Open sans";
+      }
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-width: 17em;
+        padding: 1.5em;
+        background-color: #fbfbff;
+        min-height: 30vh;
+        font-family: "Open Sans";
+        border-radius: 0.2em;
+      }
+      input {
+        padding-left: 2vw;
+        width: 14em;
+      }
+      label {
+        margin: 1em 0;
+        color: #0d0106;
+      }
+
+      span {
+        display: none;
+      }
+      h1 {
+        color: #ff331f;
+      }
+      input:invalid[focused="true"] ~ span {
+        display: block;
+        color: red;
+        animation: animateinput 1s ease-in-out;
+      }
+
+      @keyframes animateinput {
+        0% {
+          display: none;
+          opacity: 0;
+        }
+        100% {
+          display: block;
+          opacity: 1;
+        }
+      }
+
+      button {
+        border: none;
+        background-color: #657ed4;
+        color: #fbfbff;
+        font-family: "Open Sans";
+        font-size: 1.3em;
+        border-radius: 0.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kamp Coder</h1>
+    <form action="http://localhost:5000/data" method="POST">
+      <label for="name"
+        ><div>Name</div>
+        <input
+          type="text"
+          name="name"
+          placeholder="name"
+          pattern="^[A-Za-z0-9]{3,15}$"
+          required
+          focused="false"
+      /></label>
+
+      <span class="errorMessage">Please enter your name</span>
+
+      <label for="email"
+        ><div>Email</div>
+        <input
+          type="text"
+          name="email"
+          placeholder="email"
+          required
+          focused="false"
+      /></label>
+
+      <span>Please enter valid email </span>
+
+      <label for="message"
+        ><div>Message</div>
+        <input type="text" name="message" placeholder="message" required
+      /></label>
+
+      <span>Please write message between 15 to 60 words</span>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
